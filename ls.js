@@ -1,5 +1,5 @@
 const fs = require('fs');
-module.exports = ls = () => {
+const ls = () => {
     process.stdout.write('prompt > ' );
     process.stdin.on('data', (data) => {
         fs.readdir('./', 'utf8', (err, files) => {
@@ -11,4 +11,5 @@ module.exports = ls = () => {
             }
         })
     });
-}
+};
+module.exports = ls;
