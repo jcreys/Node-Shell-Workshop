@@ -2,12 +2,18 @@
 const pwd = require('./pwd');
 const ls = require('./ls');
 
-pwd();
-console.log(ls);
-ls();
+process.stdout.write('prompt >' );
 
-// process.stdout.write('prompt > ' );
-// if(cmd === 'pwd') {
-//     process.stdout.write(pwd);
-// }
+process.stdin.on('data', (data) => {
+    const cmd = data.toString().trim();
+    if(cmd === 'pwd') {
+        pwd();
+    }
 
+    else if(cmd === 'ls') {
+        ls();
+    }
+});
+// pwd();
+// console.log(ls);
+// ls();
